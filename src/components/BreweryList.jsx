@@ -1,4 +1,6 @@
 import Brewery from './Brewery'
+import Button from 'react-bootstrap/Button';
+
 
 const BreweryList = ({ brewery }) => {
     const renderedBrewery  = brewery.map((brew) =>{
@@ -16,7 +18,16 @@ const BreweryList = ({ brewery }) => {
             />
         )
     })
-    return <>{renderedBrewery}</>
+    return (
+    <>
+    <div>
+        <Button variant="primary">Primary</Button>
+        <Button variant="primary">Primary</Button>
+    </div>
+    
+    {renderedBrewery}
+    </>
+    )
 }
 
 export default BreweryList;

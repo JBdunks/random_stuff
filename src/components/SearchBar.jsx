@@ -6,6 +6,7 @@ const SearchBar = ({ onSubmitState, onSubmitCity }) => {
 
     const handleFormSubmitState = (event) => {
         event.preventDefault();
+        setTermCity('')
         onSubmitState(termState)
     };
 
@@ -15,13 +16,12 @@ const SearchBar = ({ onSubmitState, onSubmitCity }) => {
 
     const handleFormSubmitCity = (event) => {
         event.preventDefault();
-        console.log('handleformcity')
+        setTermState('')
         onSubmitCity(termCity)
     };
 
     const handleChangeCity =(event) => {
         setTermCity(event.target.value)
-        console.log('handlecity')
     }
 
     return(
