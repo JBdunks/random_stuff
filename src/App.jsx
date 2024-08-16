@@ -1,19 +1,24 @@
 import { useState } from 'react';
-import {byState} from './api';
+import { byState, byCity} from './api';
 import SearchBar from './components/SearchBar';
 import BreweryList from './components/BreweryList';
 
 function App() {
   const [brewery, setBrewery] = useState([]);
 
-  const handleSubmit = async (term) => {
+  const handleSubmitState = async (term) => {
     const result = await byState(term)
+    setBrewery(result)
+  }
+
+  const handleSubmitCity = async (term) => {
+    const result = await byCity(term)
     setBrewery(result)
   }
 
   return (
     <div>
-      <SearchBar onSubmit = {handleSubmit} />
+      <SearchBar onSubmitState = {handleSubmitState} onSubmitCity = {handleSubmitCity} />
       <BreweryList brewery ={brewery} />
     </div>
   )

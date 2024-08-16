@@ -6,13 +6,13 @@ const BreweryList = ({ brewery }) => {
             <Brewery 
             key ={brew.id}
             name = {brew.name}
-            street = {brew.street}
+            street = {brew.street ? brew.street : 'n/a'}
             city = {brew.city}
-            zip = {brew.postal_code}
+            zip = {brew.postal_code.slice(0,5)}
             state = {brew.state}
             web = {brew.website_url}
             type = {brew.brewery_type}
-            phone = {brew.phone}
+            phone = {brew.phone ? brew.phone : 'n/a'}
             />
         )
     })
