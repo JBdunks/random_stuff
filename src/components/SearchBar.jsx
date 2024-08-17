@@ -1,39 +1,23 @@
 import { useState } from 'react'
 
-const SearchBar = ({ onSubmitState, onSubmitCity }) => {
-    const [termState, setTermState] = useState('');
-    const [termCity, setTermCity] = useState('');
+const SearchBar = ({ onSubmit }) => {
+    const [term, setTerm] = useState('');
 
-    const handleFormSubmitState = (event) => {
+    const handleFormSubmit = (event) => {
         event.preventDefault();
-        setTermCity('')
-        onSubmitState(termState)
+        onSubmit(term)
+        setTerm('')
     };
 
-    const handleChangeState =(event) => {
-        setTermState(event.target.value)
+    const handleChange =(event) => {
+        setTerm(event.target.value)
     };  
-
-    const handleFormSubmitCity = (event) => {
-        event.preventDefault();
-        setTermState('')
-        onSubmitCity(termCity)
-    };
-
-    const handleChangeCity =(event) => {
-        setTermCity(event.target.value)
-    }
 
     return(
     <div>
-        <form onSubmit ={handleFormSubmitState}>
-          <label>Enter State</label>
-          <input value ={termState} onChange ={handleChangeState}></input>
-        </form>
-
-        <form onSubmit ={handleFormSubmitCity}>
-          <label>Enter City</label>
-          <input value ={termCity} onChange ={handleChangeCity}></input>
+        <form onSubmit ={handleFormSubmit}>
+          <label>Enter State or City: </label>
+          <input value ={term} onChange ={handleChange}></input>
         </form>
     </div>
     )
